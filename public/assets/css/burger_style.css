@@ -1,5 +1,6 @@
 div.jumbotron {
-	background-color: blue;
+	background-color: black;
+	color: white;
 }
 
 #addBurger {

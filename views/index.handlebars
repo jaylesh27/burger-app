@@ -8,7 +8,7 @@
     <div class="col-lg-6">
     <form class="create-update-form" action="/" method="POST">
       <div class="input-group" id = "addBurger">
-        <input type="text" class="form-control" placeholder="Enter a burger you'd like to eat!" id = "burger">
+        <input type="text" class="form-control" placeholder="Enter a burger you'd like to eat!" id = "newBurger" name = "burger_name">
         <span class="input-group-btn">
           <button class="btn btn-default" type="submit">Add!</button>
         </span>
@@ -20,15 +20,48 @@
   <div class = "row">
     <div class = "col-lg-6">
       <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">List of burgers to consume</h3>
+        </div>
         <div class="panel-body">
-          Basic panel example
+          <ul>
+            {{#each burgers}}
+              {{#unless this.devoured}}
+                <li>
+                  {{this.burger_name}}
+
+                  <form action="/{{this.id}}?_method=PUT" method="POST">
+                  <input type="hidden" name="devoured" value="true">
+                  <button type="submit">OM NOM NOM</button>
+                  </form>
+                  <br>
+                </li>
+            {{/unless}}
+            {{/each}}
+          </ul>
         </div>
       </div>
     </div>
     <div class = "col-lg-6">
       <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Consumed burgers</h3>
+        </div>
         <div class="panel-body">
-          Basic panel example
+          <ul>
+            {{#each burgers}}
+              {{#if this.devoured}}
+                <li>
+                  {{this.burger_name}}
+
+                    <form action="/{{this.id}}?_method=PUT" method="POST">
+                      <input type="hidden" name="devoured" value="false">
+                    </form>
+                  <br>
+                </li>
+              {{/if}}
+            {{/each}}
+          </ul>
         </div>
       </div>
     </div>
