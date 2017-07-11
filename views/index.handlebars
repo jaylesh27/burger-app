@@ -5,15 +5,15 @@
   </div>
 
   <div class = "row">
-    <div class="col-lg-6">
-    <form class="create-update-form" action="/" method="POST">
-      <div class="input-group" id = "addBurger">
-        <input type="text" class="form-control" placeholder="Enter a burger you'd like to eat!" id = "newBurger" name = "burger_name">
-        <span class="input-group-btn">
-          <button class="btn btn-default" type="submit">Add!</button>
-        </span>
-      </div>
-    </form>
+    <div class="col-lg-12">
+      <form class="create-update-form" action="/" method="POST">
+        <div class="input-group" id = "addBurger">
+          <input type="text" class="form-control" placeholder="Enter a burger you'd like to eat!" id = "newBurger" name = "burger_name">
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="submit">Add!</button>
+          </span>
+        </div>
+      </form>
     </div>
   </div>
 
@@ -54,9 +54,9 @@
                 <li>
                   {{this.burger_name}}
 
-                    <form action="/{{this.id}}?_method=PUT" method="POST">
+{{!--                     <form action="/{{this.id}}?_method=PUT" method="POST">
                       <input type="hidden" name="devoured" value="false">
-                    </form>
+                    </form> --}}
                   <br>
                 </li>
               {{/if}}
@@ -66,5 +66,4 @@
       </div>
     </div>
   </div>
-
 </div>
