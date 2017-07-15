@@ -13,9 +13,6 @@ router.get("/", function(req, res){
   });
 });
 
-
-
-
 router.post("/", function(req, res) {
   burger.create([
     "burger_name",
@@ -37,7 +34,6 @@ router.put("/:id", function(req, res) {
     res.redirect("/");
   });
 });
-
 
 // Export routes for server.js to use.
 module.exports = router;
